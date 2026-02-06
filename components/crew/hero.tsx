@@ -118,7 +118,7 @@ export function Hero({ content }: HeroProps) {
             <ul className="hero__info-list">
               <li className="hero__info-item">Regular session</li>
               <li className="hero__info-item">Beginner session</li>
-              <li className="hero__info-item">Training team: ep-racer</li>
+              <li className="hero__info-item">Training team: EP-racer</li>
               <li className="hero__info-item">Trail Running</li>
             </ul>
           </div>

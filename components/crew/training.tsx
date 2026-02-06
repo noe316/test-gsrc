@@ -8,23 +8,23 @@ const defaultPrograms = [
   {
     number: "01",
     level: "BEGINNER",
-    title: "입문",
-    description: "처음 러닝을 시작하는 분들을 위한 프로그램. 기초 체력부터 5K 완주까지 단계별로 함께합니다.",
-    features: ["기초 러닝폼 교정", "5K 목표 훈련", "페이스 코칭"],
+    title: "초보벙",
+    description: "처음 러닝을 시작하는 초보분들을 위한 프로그램",
+    features: ["5~6km", "7'00~7'30", "800m 러닝 + 200m 걷기"],
   },
   {
     number: "02",
-    level: "INTERMEDIATE", 
-    title: "레벨업",
-    description: "5K를 완주하고 10K에 도전하고 싶은 러너를 위한 프로그램입니다.",
-    features: ["인터벌 트레이닝", "10K 준비", "회복 가이드"],
+    level: "All",
+    title: "정기런",
+    description: "전체 크루원 대상으로 모든 수준의 러너가 함께 달리는 프로그램",
+    features: ["4~5km", "A-E 수준별 조편성", "매주 화요일"],
   },
   {
     number: "03",
     level: "ADVANCED",
-    title: "레이스",
-    description: "하프마라톤 및 각종 대회 참가를 목표로 하는 러너를 위한 트레이닝.",
-    features: ["템포런 & LSD", "대회 전략", "기록 관리"],
+    title: "은평레이서",
+    description: "하프마라톤 및 각종 대회 참가를 목표로 하는 러너를 위한 연합훈련",
+    features: ["8~13km", "1~6 수준별 조편성", "매주 목요일"],
   },
 ]
 
