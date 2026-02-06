@@ -25,11 +25,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: 'npm'
+          # cache 옵션을 제거했습니다 (에러 방지)
 
       - name: Install dependencies
-        run: npm ci
-        # 만약 npm ci 에러가 나면 'npm install'로 바꿔보세요.
+        run: npm install  # ci 대신 install 사용 (lock 파일 없어도 설치 가능)
 
       - name: Build
         run: npm run build
