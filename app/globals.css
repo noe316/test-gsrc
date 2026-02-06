@@ -1,0 +1,912 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+
+  /* GSRC81 Brand Colors */
+  --gsrc-red: #CE2C45;
+  --gsrc-yellow: #f1e183;
+  --gsrc-green: #4c9a96;
+  --gsrc-blue: #417ebf;
+
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: #c3ed5a;
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-display: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --color-gsrc-red: var(--gsrc-red);
+  --color-gsrc-yellow: var(--gsrc-yellow);
+  --color-gsrc-green: var(--gsrc-green);
+  --color-gsrc-blue: var(--gsrc-blue);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    word-break: auto-phrase;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* ================================
+   BEM COMPONENT STYLES
+   ================================ */
+
+/* Navigation */
+.nav {
+  @apply fixed top-0 left-0 right-0 z-50 px-6 py-5 flex justify-between items-center;
+}
+
+.nav__logo {
+  @apply block;
+}
+
+.nav__logo-img {
+  @apply h-7 w-auto;
+}
+
+.nav__menu {
+  @apply hidden md:flex items-center gap-2;
+}
+
+.nav__link {
+  @apply text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-4 py-2 hover:bg-foreground/5 rounded;
+  @apply text-sm font-medium text-white hover:text-foreground transition-colors px-4 py-2 hover:bg-foreground/5 rounded;
+}
+
+.nav__toggle {
+  @apply md:hidden text-foreground hover:text-accent transition-colors uppercase text-sm font-bold tracking-wider;
+}
+
+.nav__mobile {
+  @apply fixed inset-0 z-50 bg-background;
+}
+
+.nav__mobile-inner {
+  @apply flex flex-col h-full px-6 py-5;
+}
+
+.nav__mobile-header {
+  @apply flex justify-between items-center;
+}
+
+.nav__mobile-menu {
+  @apply flex-1 flex flex-col justify-center gap-2;
+}
+
+.nav__mobile-item {
+  @apply flex items-baseline gap-6;
+}
+
+.nav__mobile-number {
+  @apply text-sm font-mono text-muted-foreground;
+}
+
+.nav__mobile-label {
+  @apply text-5xl md:text-6xl font-black uppercase tracking-tight text-foreground transition-colors;
+}
+
+.nav__mobile-item:hover .nav__mobile-label {
+  @apply text-accent;
+}
+
+.nav__mobile-footer {
+  @apply flex justify-between items-end text-sm text-muted-foreground;
+}
+
+/* Hero - Almaty Marathon Style */
+.hero {
+  @apply relative min-h-screen flex flex-col px-6 py-6 overflow-hidden;
+  /*background-color: #417ebf;*/
+  background: url('/images/hero-runner.jpg') no-repeat left center / cover;
+  background-attachment: fixed;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.hero--almaty {
+  @apply justify-between;
+}
+
+.hero__topbar {
+  @apply flex justify-end items-start gap-8 pt-16;
+}
+
+.hero__countdown {
+  @apply text-right;
+}
+
+.hero__countdown-label {
+  @apply text-sm;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero__countdown-time {
+  @apply font-mono text-lg;
+  color: #ffffff;
+}
+
+.hero__more-btn {
+  @apply flex items-center gap-2 px-6 py-2 text-sm font-medium transition-all;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background: transparent;
+}
+
+.hero__more-btn:hover {
+  background: #ffffff;
+  color: #417ebf;
+}
+
+.hero__more-dot {
+  @apply w-2 h-2 rounded-full;
+  background-color: #4c9a96;
+}
+
+.hero__main {
+  @apply flex-1 flex items-center justify-end;
+}
+
+.hero__almaty-title {
+  @apply flex flex-col;
+  width: 60vw;
+}
+
+.hero__almaty-line {
+  @apply font-black uppercase leading-none;
+  color: #ffffff;
+  font-size: clamp(3rem, 12vw, 10rem);
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+
+.hero__almaty-line--accent {
+  color: #f1e183;
+}
+
+.hero__almaty-line--muted {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hero__bottom {
+  @apply grid grid-cols-1 gap-8 pt-8;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 768px) {
+  .hero__bottom {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.hero__bottom-col {
+  color: #ffffff;
+}
+
+.hero__bottom-text {
+  @apply text-sm leading-relaxed uppercase tracking-wide;
+}
+
+@media (min-width: 768px) {
+  .hero__bottom-text {
+    font-size: 1rem;
+  }
+}
+
+.hero__bottom-location {
+  @apply text-lg font-medium;
+}
+
+.hero__bottom-sub {
+  @apply text-sm mt-1;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hero__info-list {
+  @apply space-y-0;
+}
+
+.hero__info-item {
+  @apply text-sm py-2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons - Almaty Marathon Style */
+.btn {
+  @apply flex items-center justify-center gap-3 py-4 px-8 font-bold text-base uppercase tracking-wide transition-all;
+  border: 2px solid var(--accent);
+  background: transparent;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: var(--primary-foreground);
+}
+
+.btn--primary {
+  @apply bg-accent text-accent-foreground;
+}
+
+.btn--primary:hover {
+  background: #a82339;
+}
+
+.btn--outline {
+  @apply bg-transparent text-foreground;
+  border-color: var(--foreground);
+}
+
+.btn--outline:hover {
+  @apply bg-foreground text-background;
+}
+
+.btn--large {
+  @apply py-5 text-lg;
+}
+
+.btn__icon {
+  @apply w-5 h-5 transition-transform;
+}
+
+.btn:hover .btn__icon {
+  @apply translate-x-1;
+}
+
+/* Section */
+.section {
+  @apply px-6 py-24 md:py-32;
+}
+
+.section--alt {
+  @apply bg-card;
+}
+
+.section__inner {
+  @apply max-w-6xl mx-auto;
+}
+
+.section__tag {
+  @apply text-accent text-sm font-black tracking-widest uppercase mb-8;
+}
+
+.section__title {
+  @apply text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight;
+}
+
+.section__desc {
+  @apply text-lg text-muted-foreground leading-relaxed;
+}
+
+/* About */
+.about__grid {
+  @apply grid md:grid-cols-2 gap-12 md:gap-20 mb-20;
+}
+
+.about__link {
+  @apply inline-flex items-center gap-2 text-accent font-bold hover:underline;
+}
+
+.about__stats {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-4;
+}
+
+.about__stat {
+  @apply bg-card p-6 md:p-8 transition-all border-l-4 border-l-accent border-t border-r border-b border-muted;
+}
+
+.about__stat:hover {
+  @apply bg-secondary;
+}
+
+.about__stat-value {
+  @apply text-4xl md:text-5xl font-black text-accent mb-2;
+}
+
+.about__stat-label {
+  @apply text-sm text-muted-foreground font-medium;
+}
+
+.about__tagline {
+  @apply mt-20 text-center;
+}
+
+.about__tagline-text {
+  @apply text-5xl md:text-7xl lg:text-8xl font-black text-foreground uppercase tracking-tight;
+}
+
+.about__tagline-accent {
+  @apply text-accent;
+}
+
+/* Rules */
+.rules__list {
+  @apply space-y-0 border-t border-muted;
+}
+
+.rules__item {
+  @apply py-8 md:py-10 border-b border-muted hover:bg-secondary/30 transition-colors -mx-6 px-6;
+}
+
+.rules__item-grid {
+  @apply grid md:grid-cols-12 gap-6 items-start;
+}
+
+.rules__number {
+  @apply md:col-span-2 text-sm font-mono text-accent;
+}
+
+.rules__title {
+  @apply md:col-span-4 text-2xl md:text-3xl font-black text-foreground;
+}
+
+.rules__desc {
+  @apply md:col-span-6 text-muted-foreground leading-relaxed text-lg;
+}
+
+.rules__notice {
+  @apply mt-16 p-8 md:p-10 bg-accent border-l-4 border-l-foreground;
+}
+
+.rules__notice-inner {
+  @apply flex gap-4;
+}
+
+.rules__notice-icon {
+  @apply w-6 h-6 text-accent-foreground flex-shrink-0 mt-1;
+}
+
+.rules__notice-title {
+  @apply font-black text-xl text-accent-foreground mb-4;
+}
+
+.rules__notice-text {
+  @apply text-primary-foreground font-medium mb-4;
+}
+
+.rules__notice-example {
+  @apply text-primary-foreground/80 font-mono;
+}
+
+/* Training / Programs */
+.programs__grid {
+  @apply grid md:grid-cols-3 gap-4 mb-24;
+}
+
+.programs__card {
+  @apply bg-card p-6 md:p-8 transition-all flex flex-col border border-muted;
+}
+
+.programs__card:hover {
+  @apply border-accent;
+}
+
+.programs__card-header {
+  @apply flex items-center justify-between mb-6;
+}
+
+.programs__card-number {
+  @apply text-xs font-mono text-muted-foreground;
+}
+
+.programs__card-level {
+  @apply text-xs font-black tracking-widest text-accent;
+}
+
+.programs__card-title {
+  @apply text-4xl md:text-5xl font-black text-foreground mb-4;
+}
+
+.programs__card-desc {
+  @apply text-muted-foreground leading-relaxed mb-8 flex-grow;
+}
+
+.programs__features {
+  @apply space-y-2 mb-8;
+}
+
+.programs__feature {
+  @apply flex items-center gap-3 text-sm text-foreground;
+}
+
+.programs__feature-dot {
+  @apply w-1 h-1 bg-accent rounded-full;
+}
+
+.programs__card-btn {
+  @apply w-full py-4 bg-secondary text-foreground font-bold uppercase tracking-wider hover:bg-accent hover:text-primary-foreground transition-colors flex items-center justify-center gap-2 rounded;
+}
+
+/* Schedule */
+.schedule__grid {
+  @apply grid md:grid-cols-3 gap-4;
+}
+
+.schedule__card {
+  @apply bg-card p-6 md:p-8 transition-all border border-muted;
+}
+
+.schedule__card:hover {
+  @apply border-accent;
+}
+
+.schedule__header {
+  @apply flex items-baseline gap-4 mb-4;
+}
+
+.schedule__day {
+  @apply font-black text-6xl text-accent;
+}
+
+.schedule__time {
+  @apply font-mono text-xl text-foreground;
+}
+
+.schedule__body {
+  @apply pt-4 border-t border-muted;
+}
+
+.schedule__type {
+  @apply font-bold text-foreground text-lg;
+}
+
+.schedule__location {
+  @apply text-sm text-muted-foreground mt-1;
+}
+
+.schedule__note {
+  @apply text-muted-foreground mt-8 text-sm;
+}
+
+/* Join */
+.join__grid {
+  @apply grid md:grid-cols-2 gap-12 md:gap-20 mb-16;
+}
+
+.join__buttons {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-3 mb-16;
+}
+
+.join__checklist {
+  @apply border-t border-muted pt-12;
+}
+
+.join__checklist-title {
+  @apply text-sm font-black tracking-widest uppercase text-muted-foreground mb-8;
+}
+
+.join__checklist-grid {
+  @apply grid md:grid-cols-2 gap-6;
+}
+
+.join__checklist-item {
+  @apply flex items-start gap-3;
+}
+
+.join__checklist-number {
+  @apply text-accent font-mono text-sm;
+}
+
+.join__checklist-text {
+  @apply text-foreground;
+}
+
+/* Footer */
+.footer {
+  @apply px-6 py-12 border-t border-muted;
+}
+
+.footer__inner {
+  @apply max-w-6xl mx-auto;
+}
+
+.footer__grid {
+  @apply grid md:grid-cols-2 gap-8 items-end;
+}
+
+.footer__brand {
+  /* Empty block for footer brand */
+}
+
+.footer__logo {
+  @apply h-10 w-auto mb-4;
+}
+
+.footer__desc {
+  @apply text-muted-foreground text-sm;
+}
+
+.footer__links {
+  @apply flex flex-wrap gap-4 md:justify-end text-sm;
+}
+
+.footer__link {
+  @apply text-muted-foreground hover:text-foreground transition-colors;
+}
+
+.footer__bottom {
+  @apply mt-12 pt-8 border-t border-muted flex flex-col md:flex-row justify-between gap-4 text-sm text-muted-foreground;
+}
+
+/* ================================
+   ADMIN STYLES
+   ================================ */
+
+/* Admin Login */
+.admin-login {
+  @apply min-h-screen flex items-center justify-center px-6 py-12;
+}
+
+.admin-login__container {
+  @apply w-full max-w-md;
+}
+
+.admin-login__header {
+  @apply text-center mb-8;
+}
+
+.admin-login__logo {
+  @apply h-12 w-auto mx-auto mb-6;
+}
+
+.admin-login__title {
+  @apply text-3xl font-black text-foreground mb-2;
+}
+
+.admin-login__subtitle {
+  @apply text-muted-foreground;
+}
+
+.admin-login__form {
+  @apply space-y-6;
+}
+
+.admin-login__error {
+  @apply bg-destructive text-primary-foreground px-4 py-3 text-sm font-bold;
+  border: 2px solid #fafafa;
+  box-shadow: 3px 3px 0 0 #fafafa;
+}
+
+.admin-login__field {
+  @apply space-y-2;
+}
+
+.admin-login__label {
+  @apply block text-sm font-bold text-foreground;
+}
+
+.admin-login__input {
+  @apply w-full px-4 py-3 bg-secondary text-foreground placeholder:text-muted-foreground focus:outline-none transition-all text-base;
+  border: 2px solid #fafafa;
+}
+
+.admin-login__input:focus {
+  border-color: var(--accent);
+  box-shadow: 3px 3px 0 0 var(--accent);
+}
+
+.admin-login__submit {
+  @apply w-full;
+}
+
+.admin-login__footer {
+  @apply mt-8 text-center;
+}
+
+.admin-login__back {
+  @apply text-muted-foreground hover:text-foreground transition-colors text-sm;
+}
+
+/* Admin Dashboard */
+.admin {
+  @apply min-h-screen bg-background;
+}
+
+.admin__header {
+  @apply fixed top-0 left-0 right-0 z-50 bg-card border-b border-muted px-6 py-4;
+}
+
+.admin__header-inner {
+  @apply max-w-7xl mx-auto flex justify-between items-center;
+}
+
+.admin__brand {
+  @apply flex items-center gap-4;
+}
+
+.admin__logo {
+  @apply h-8 w-auto;
+}
+
+.admin__title {
+  @apply text-lg font-bold text-foreground hidden sm:block;
+}
+
+.admin__user {
+  @apply flex items-center gap-4;
+}
+
+.admin__email {
+  @apply text-sm text-muted-foreground hidden sm:block;
+}
+
+.admin__logout {
+  @apply flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors;
+}
+
+.admin__message {
+  @apply fixed top-20 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded font-medium;
+}
+
+.admin__message--success {
+  background-color: #4c9a96;
+  color: white;
+}
+
+.admin__message--error {
+  @apply bg-destructive text-white;
+}
+
+.admin__layout {
+  @apply pt-20 flex min-h-screen;
+}
+
+.admin__sidebar {
+  @apply w-64 bg-card border-r border-muted p-6 hidden md:block fixed top-20 bottom-0 left-0 overflow-y-auto;
+}
+
+.admin__nav {
+  @apply space-y-1;
+}
+
+.admin__nav-item {
+  @apply w-full text-left px-4 py-3 rounded text-foreground hover:bg-secondary transition-colors font-medium;
+}
+
+.admin__nav-item--active {
+  @apply bg-accent text-primary-foreground;
+}
+
+.admin__main {
+  @apply flex-1 p-6 md:p-8 md:ml-64;
+}
+
+.admin__section-header {
+  @apply mb-8;
+}
+
+.admin__section-title {
+  @apply text-2xl font-black text-foreground;
+}
+
+.admin__content-list {
+  @apply space-y-4 mb-12;
+}
+
+.admin__empty {
+  @apply text-center py-12 text-muted-foreground;
+}
+
+.admin__content-item {
+  @apply bg-card p-6;
+  border: 2px solid #fafafa;
+  box-shadow: 4px 4px 0 0 var(--primary);
+}
+
+.admin__content-header {
+  @apply flex justify-between items-start mb-4;
+}
+
+.admin__content-label {
+  @apply font-bold text-foreground;
+}
+
+.admin__content-actions {
+  @apply flex items-center gap-2;
+}
+
+.admin__btn {
+  @apply flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase transition-all;
+  border: 2px solid currentColor;
+  box-shadow: 3px 3px 0 0 currentColor;
+}
+
+.admin__btn:hover {
+  box-shadow: 1px 1px 0 0 currentColor;
+  transform: translate(2px, 2px);
+}
+
+.admin__btn--save {
+  @apply bg-primary text-primary-foreground;
+  border-color: var(--primary);
+  box-shadow: 3px 3px 0 0 #fafafa;
+}
+
+.admin__btn--save:hover {
+  box-shadow: 1px 1px 0 0 #fafafa;
+}
+
+.admin__btn--delete {
+  @apply bg-transparent text-muted-foreground hover:text-destructive hover:bg-destructive/10;
+}
+
+.admin__textarea {
+  @apply w-full px-4 py-3 bg-secondary text-foreground placeholder:text-muted-foreground focus:outline-none transition-all resize-y text-base;
+  border: 2px solid #fafafa;
+}
+
+.admin__textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 3px 3px 0 0 var(--primary);
+}
+
+.admin__input {
+  @apply w-full px-4 py-3 bg-secondary text-foreground placeholder:text-muted-foreground focus:outline-none transition-all text-base;
+  border: 2px solid #fafafa;
+}
+
+.admin__input:focus {
+  border-color: var(--primary);
+  box-shadow: 3px 3px 0 0 var(--primary);
+}
+
+.admin__updated {
+  @apply block mt-2 text-xs text-muted-foreground;
+}
+
+.admin__add-field {
+  @apply bg-card border border-muted p-6 rounded;
+}
+
+.admin__add-title {
+  @apply text-lg font-bold text-foreground mb-4;
+}
+
+.admin__add-form {
+  @apply space-y-4;
+}

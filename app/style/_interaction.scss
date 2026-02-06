@@ -1,0 +1,48 @@
+
+.circle {
+  width: 400px;
+  height: 400px;
+  animation: rotate-circle 10s infinite linear
+
+}
+svg text{
+  //fill: rgba(255,255,255,0.4);
+  fill: #c5ee5b;
+  font-weight: 900;
+  font-size: 50px;
+  letter-spacing: -0.02em;
+}
+@keyframes rotate-circle {
+  0% {
+    transform: rotate(0turn);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+
+
+/* About Tagline Animation */
+.about__tagline {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
+}
+.about__tagline-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
+}
+.about__tagline-text {
+  padding-right: 2rem; /* Space between repeated texts */
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
