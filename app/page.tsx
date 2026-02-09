@@ -7,7 +7,7 @@ import { Training } from "@/components/crew/training"
 import { Join } from "@/components/crew/join"
 import { Footer } from "@/components/crew/footer"
 
-// Deploy trigger
+// Deploy trigger - refresh cache
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
