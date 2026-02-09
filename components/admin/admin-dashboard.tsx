@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import type { User } from "@supabase/supabase-js";
@@ -33,8 +33,18 @@ export default function AdminDashboard({ user, initialContent }: AdminDashboardP
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
   const [newField, setNewField] = useState({ field: "", value: "" });
+  const [mountedDates, setMountedDates] = useState<Record<string, string>>({});
   const router = useRouter();
   const supabase = createClient();
+
+  // 클라이언트에서만 날짜 포맷팅하기
+  useEffect(() => {
+    const dates: Record<string, string> = {};
+    initialContent.forEach((item) => {
+      dates[item.id] = new Date(item.updated_at).toLocaleString("ko-KR");
+    });
+    setMountedDates(dates);
+  }, [initialContent]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -207,7 +217,7 @@ export default function AdminDashboard({ user, initialContent }: AdminDashboardP
                     rows={item.value.length > 100 ? 5 : 2}
                   />
                   <span className="admin__updated">
-                    마지막 수정: {new Date(item.updated_at).toLocaleString("ko-KR")}
+                    마지막 수정: {mountedDates[item.id] || "로딩 중..."}
                   </span>
                 </div>
               ))
